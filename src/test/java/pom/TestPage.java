@@ -3,8 +3,6 @@ package pom;
 import com.codeborne.selenide.Selenide;
 
 import io.qameta.allure.*;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +23,7 @@ public class TestPage {
     @BeforeEach
     public void setUp() {
         //Перейти на сайт «https://www.pobeda.aero/».
-        open("https://www.pobeda.aero/");
+        Selenide.open("https://pobeda.aero");
 
         //Создаем экземпляр оъекта страницы
         CheckPage objCheck = new CheckPage();
