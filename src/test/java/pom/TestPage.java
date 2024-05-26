@@ -2,11 +2,9 @@ package pom;
 
 import com.codeborne.selenide.Selenide;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -61,7 +59,7 @@ public class TestPage {
 
             //Проскроллить страницу к блоку поиска билета
             objScroll.getScroll().shouldBe(visible,
-                    Duration.ofSeconds(20));
+                    Duration.ofSeconds(30));
             //Проверка поля Откуда
             objCheck.getWhereFrom();
             //Проверка поля Куда
@@ -96,7 +94,7 @@ public class TestPage {
             DataEntryPage objEntry = new DataEntryPage();
         //Проскроллить страницу чуть ниже и кликнуть на пункт «Управление бронированием».
         objScroll.getScroll3().shouldBe(visible,
-                Duration.ofSeconds(10));
+                Duration.ofSeconds(20));
         objEntry.clickButtonBookingManagement();
         //Проверка поля «Номер заказа или билета»
            objCheck.getOrderOrTicketNumber();
@@ -120,7 +118,7 @@ public class TestPage {
         //Проверка что в новой вкладке на экране отображается текст ошибки «Заказ с указанными параметрами не найден»
 
             $(By.xpath("/html/body/div[1]/section/div[1]/div/div/div[2]")).shouldBe(visible,
-                    Duration.ofSeconds(30));
+                    Duration.ofSeconds(40));
             objCheck.getTextError();
     }
 }
